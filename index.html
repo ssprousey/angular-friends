@@ -18,22 +18,22 @@
 
         <input class="form-control" placeholder="Search by State" ng-model= "friendFilter.location.state">
 
-        <select class="input-medium">
-          <option>Name</option>
+        <select class="input-medium" ng-model="sortProp" ng-options="option.value as option.name for option in options">
+          <!-- <option>Name</option>
           <option>#Friends</option>
           <option>City</option>
           <option>State</option>
-          <option>Country</option>
+          <option>Country</option> -->
         </select>
 
-        <select class="input-medium">
+        <select class="input-medium" ng-model="sortDirection">
           <option value="-">Descending</option>
           <option value="+">Ascending</option>
         </select>
       </div>
     </form>
     <ul>
-      <li class='friend' ng-repeat="friend in friends | filter: friendFilter">
+      <li class='friend' ng-repeat="friend in friends | filter: friendFilter | orderBy: sortDirection + sortProp">
         <img class="profile-pic" ng-src='{{friend.pic_square}}'>
         <h3>{{friend.name}}</h3>
         <div class="location">

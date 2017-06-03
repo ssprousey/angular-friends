@@ -171,5 +171,14 @@ angular.module('myApp').controller('FriendCtrl', function ($scope) {
     friend_count: 855
   }];
 
+  $scope.options = [
+    { name: '#Friends', value: 'friend_count'},
+    { name: 'Name', value: 'name'},
+    { name: 'Country', value: 'location.country'},
+    { name: 'City', value: 'location.city'},
+    { name: 'State', value: 'location.state'}
+
+  ];
+
 
 })
